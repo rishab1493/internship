@@ -14,5 +14,11 @@ function parseJson(string) {
     }
   }
 }
-const str1 = '{"name": "john", "age":21}'
-console.log(parseJson(str1))
+const str1 = '{"name": "john", "age":21,}'
+const result = parseJson(str1)
+
+if (result.success) {
+  console.log("Parsed data:", result.data)
+} else {
+  console.log("Error parsing JSON:", result.error)
+}
