@@ -1,0 +1,18 @@
+Write a script to save and retrieve data from the browser's local storage.
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //injecting some data in the local storage
+      window.localStorage.setItem("John", "61")
+      const value = window.localStorage.getItem("John")
+      console.log(value)
+    </script>
+  </body>
+</html>
