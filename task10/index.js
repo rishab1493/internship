@@ -3,9 +3,15 @@
 function parseJson(string) {
   try {
     const value = JSON.parse(string)
-    return value
+    return {
+      success: true,
+      data: value,
+    }
   } catch (error) {
-    return error
+    return {
+      success: false,
+      error: error.message,
+    }
   }
 }
 const str1 = '{"name": "john", "age":21}'

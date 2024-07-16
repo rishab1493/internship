@@ -14,11 +14,12 @@ Write a function to dynamically add list items to an unordered list in the HTML.
 
     <script>
       function addingItems() {
-        const inputText = document.getElementById("item").value
+        const inputText = document.getElementById("item")
         const unOrderedList = document.getElementById("ulist")
         const list = document.createElement("li")
-        list.append(inputText)
+        list.append(inputText.value)
         unOrderedList.append(list)
+        inputText.value = ""
       }
     </script>
   </body>

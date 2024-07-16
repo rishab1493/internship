@@ -8,11 +8,48 @@ Write a script to save and retrieve data from the browser's local storage.
     <title>Document</title>
   </head>
   <body>
+    <h1>Store Key-Value pair</h1>
+    Key: <input id="key" type="text" placeholder="key" /> Value:<input
+      id="value"
+      type="text"
+      placeholder="value"
+    />
+    <button onclick="storeData()">Submit</button>
+    <h1>Retrieve Value by Key</h1>
+    key: <input id="key2" type="text" placeholder="key" />
+    <button onclick="retrieveData()">Retrieve</button>
+    <p id="p"></p>
+    <h1>Retrieve All Data</h1>
+    <button onclick="retrieveAllData()">Retrieve All</button>
+    <ul id="ul"></ul>
     <script>
-      //injecting some data in the local storage
-      window.localStorage.setItem("John", "61")
-      const value = window.localStorage.getItem("John")
-      console.log(value)
+      function storeData() {
+        const key = document.getElementById("key")
+        const value = document.getElementById("value")
+        window.localStorage.setItem(key.value, value.value)
+        key.value = ""
+        value.value = ""
+      }
+
+      function retrieveData() {
+        const key2 = document.getElementById("key2")
+        const retrieve = window.localStorage.getItem(key2.value)
+        const p = document.getElementById("p")
+
+        p.append("Value: " + retrieve)
+      }
+
+      function retrieveAllData() {
+        const allData = document.getElementById("ul")
+
+        for (let i = 0; i < localStorage.length - 1; i++) {
+          let key = localStorage.key(i)
+          let value = localStorage.getItem(key)
+          const li = document.createElement("li")
+          li.textContent = key + ":" + value
+          allData.append(li)
+        }
+      }
     </script>
   </body>
 </html>
